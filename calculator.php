@@ -22,15 +22,5 @@ echo "$a<sup>2</sup> = $asqr <br>";
 echo "<b>Square of $b </b><br>";
 $bsqr=$b*$b;
 echo "$b<sup>2</sup> = $bsqr <br><br>";
-echo "<b><u>Prime or Not</u></b><br>";
-for($i=1;$i<=$a;$i++){
-    if(($a%$i)==0){
-        print "$a is prime<br>";
-    }
-    else{
-        echo "$a is not prime<br>";
-    }
-
-}
 
 ?>

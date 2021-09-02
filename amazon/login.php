@@ -21,34 +21,40 @@
 
 </head>
 <body>
-<div class="divmain">
-    <div>
-        <img src="./images/logo.png"><br>
-    </div><br>
-    <div>
-        <form action="login-function.php" method="POST">
-            <div>
-                <label>E-mail :</label><input type="email" name="mail" placeholder="Enter email" class="form-control"><br><br>
-                <label>Password :</label><input type="password" name="pswd" placeholder="Enter password" class="form-control"><br><br>
-            </div>
-            <div style="text-align: center;">
-                <input type="submit" value="Login" name="sub" class="btn btn-primary">
-                <a href="signup_form.php" class="btn btn-secondary ml-2">Create New Account</a><br>
-                <?php
-                if (isset($_REQUEST["err"])) {
-                    $msg="*Invalid username or Password";
-                }
-                ?>           
-                <p style="color: red;">
-                <?php if(isset($msg)){
-                    echo $msg;
-                }
-                ?>
-                </p>
-            </div>
-        </form>
+    <div class="topnav">
+        <!-- <a href="logout.php">Logout</a> -->
+        <a href="signup_form.php">Register</a>
+        <a href="products.php">Add new Products</a>
+        <a href="home.php">Home</a>
     </div>
-</div>
+    <div class="divmain">
+        <div>
+            <img src="./images/logo.png"><br>
+        </div><br>
+        <div>
+            <form action="login-function.php" method="POST">
+                <div>
+                    <label>E-mail :</label><input type="email" name="mail" placeholder="Enter email" class="form-control"><br><br>
+                    <label>Password :</label><input type="password" name="password" placeholder="Enter password" class="form-control"><br><br>
+                </div>
+                <div style="text-align: center;">
+                    <input type="submit" value="Login" name="sub" class="btn btn-primary">
+                    <a href="signup_form.php" class="btn btn-secondary ml-2">Create New Account</a><br>
+                    <?php
+                    if (isset($_REQUEST["err"])) {
+                        $msg="*Invalid username or Password";
+                    }
+                    ?>           
+                    <p style="color: red;">
+                    <?php if(isset($msg)){
+                        echo $msg;
+                    }
+                    ?>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 

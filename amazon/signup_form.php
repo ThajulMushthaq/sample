@@ -14,12 +14,16 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
 
 </head>
 <body>
-
-    
+    <div class="topnav">
+        <!-- <a href="logout.php">Logout</a> -->
+        <a href="login.php">Login</a>
+        <a href="products.php">Add new Products</a>
+        <a href="home.php">Home</a>
+    </div>
     <div class="divmain">
     <div>
         <img src="./images/logo.png">
@@ -29,24 +33,18 @@
         <form action="signup_function.php" method="POST">
             <label>First Name: </label><input type="text" name="fname" class="form-control">
             <label>Last Name: </label><input type="text" name="lname" class="form-control">
-            <!-- <span class="error">* <?php echo $lnameErr;?></span> -->
             <label>D.O.B: </label><input type="date" name="dob" class="form-control">
             <label>Address: </label><textarea name="address" class="form-control"></textarea>
             <label class="form-check-label">Gender: </label><br>
             <input class="form-check-input" type="radio" name="gender" value="male"> <label class="form-check-label">Male</label> 
             <input class="form-check-input" type="radio" name="gender" value="female"> <label class="form-check-label">Female</label>  
             <input class="form-check-input" type="radio" name="gender" value="other"> <label class="form-check-label">Other</label><br>
-            <!-- <span class="error">* <?php echo $genderErr;?> -->
             <label>E-mail: </label><input type="email" name="mail" class="form-control">
-            <!-- <span class="error">* <?php echo $mailErr;?> -->
-            <label>Password: </label><input type="password" name="pswd" class="form-control"><br>
+            <label>Password: </label><input type="password" name="password" class="form-control"><br>
             <div style="text-align: center;"><input type="submit" name="submit" value="Sign In" class="btn btn-primary"></div>
-
         </form>
     </div>
     </div>
     
-
 </body>
-
 </html>

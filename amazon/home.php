@@ -1,9 +1,9 @@
-<?php 
-session_start ();
-if(!isset($_SESSION["login"]))
-	header("location:login.php"); 
-?>
+<?php
+include "db-connection.php";
 
+$sql=mysqli_query($conn,"select * from products");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,11 +24,22 @@ if(!isset($_SESSION["login"]))
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-    <h1>Hey ! Welcome to main page</h1>  
-    <a href="products.php"><h4>Products</h4>
-    <a href="page2.php"><h4>PAGE 2</h4>
-    <a href="page3.php"><h4>PAGE 3</h4>
-
-    <a href="logout.php"><h4>Logout</h4>
+    <div class="topnav">
+        <a href="logout.php">Logout</a>
+        <a href="login.php">Login</a>
+        <a href="user-profile.php">Profile</a>
+        <a href="products.php">Add new Products</a>
+        <a class="active" href="home.php">Home</a>
+    </div>
+    <?php
+    while($row=mysqli_fetch_array($sql)){
+    echo '<div class="card">
+            <img src="'.$row["image"].'">
+            <label>'.$row["name"].'</label>
+            <p>'.$row["description"].'</p>
+            <label>'.$row["date"].'</label>
+        </div>';
+    }
+    ?>
 </body>
 </html>

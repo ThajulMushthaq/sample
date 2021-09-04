@@ -9,7 +9,7 @@ $address=$_POST['address'];
 $gender=$_POST['gender'];
 $dob=$_POST['dob'];
 $password=$_POST['password'];
-$hash = password_hash($password, PASSWORD_DEFAULT);
+$hash = password_hash($password, PASSWORD_BCRYPT);
 
 $sql = "INSERT INTO user VALUES (NULL,'$fname','$lname','$mail','$address','$gender','$dob','$hash')";
 if(mysqli_query($conn, $sql)){

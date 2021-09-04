@@ -11,6 +11,7 @@ body{
     padding: 50px;
 }
 .btn {
+    border-radius: 5px;
     color: #fff;  
     background: #337ab7;  
     padding: 7px;
@@ -54,7 +55,7 @@ th{
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: left;
-    background-color: lightblue;
+    background-color: rgb(1, 59, 78);
     color: ivory;
 }
 .topnav{
@@ -90,7 +91,7 @@ th{
 }
 #imagePreview{
     /* max-width: 70px; */
-    max-height: 70px;
+    max-height: 100px;
     width: auto;
     /* height: auto; */
 }

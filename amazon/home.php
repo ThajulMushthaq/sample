@@ -1,7 +1,7 @@
 <?php
 include "db-connection.php";
 
-$sql=mysqli_query($conn,"select * from products");
+$sql=mysqli_query($conn,"select products.name,products.image,products.description,products.date,user.fname,user.lname from products left join user on products.userid=user.userid");
 
 ?>
 <!DOCTYPE html>
@@ -34,6 +34,7 @@ $sql=mysqli_query($conn,"select * from products");
     <?php
     while($row=mysqli_fetch_array($sql)){
     echo '<div class="card">
+            <h4>'.$row["fname"].' '.$row["lname"].'</h4>
             <img src="'.$row["image"].'">
             <label>'.$row["name"].'</label>
             <p>'.$row["description"].'</p>

@@ -1,5 +1,6 @@
 <?php
 session_start ();
 session_destroy();
-header("location:login.php")
+echo "<script> window.confirm('Are you sure to logout?');window.location='login.php'</script>";
+// header("location:login.php");
 ?>

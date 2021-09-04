@@ -36,9 +36,9 @@
             <label>D.O.B: </label><input type="date" name="dob" class="form-control">
             <label>Address: </label><textarea name="address" class="form-control"></textarea>
             <label class="form-check-label">Gender: </label><br>
-            <input class="form-check-input" type="radio" name="gender" value="male"> <label class="form-check-label">Male</label> 
-            <input class="form-check-input" type="radio" name="gender" value="female"> <label class="form-check-label">Female</label>  
-            <input class="form-check-input" type="radio" name="gender" value="other"> <label class="form-check-label">Other</label><br>
+            <input class="form-check-input" type="radio" name="gender" value="Male"> <label class="form-check-label">Male</label> 
+            <input class="form-check-input" type="radio" name="gender" value="Female"> <label class="form-check-label">Female</label>  
+            <input class="form-check-input" type="radio" name="gender" value="Other"> <label class="form-check-label">Other</label><br>
             <label>E-mail: </label><input type="email" name="mail" class="form-control">
             <label>Password: </label><input type="password" name="password" class="form-control"><br>
             <div style="text-align: center;"><input type="submit" name="submit" value="Sign In" class="btn btn-primary"></div>

@@ -9,15 +9,18 @@ if(isset($_POST['sub'])){
     $password=$_POST['password'];
     
     $result=mysqli_query($conn,"SELECT * FROM user WHERE mail='$mail'");
+    // var_dump($result);
     if(mysqli_num_rows($result)>0){
     $row=mysqli_fetch_array($result);
         if(password_verify($password, $row["password"])){
-            $_SESSION["login"]=$mail;
+            $_SESSION["login"]=$row['userid'];
+            // var_dump($_SESSION);
+            // exit();
             header("location: home.php");
         }
         else{
             // header("location: login.php");
-            echo '<script>alert("Wrong user details")</script>';
+            echo '<script>alert("Wrong user details");window.location="login.php"</script>';
 
         }
     

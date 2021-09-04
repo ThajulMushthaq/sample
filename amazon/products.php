@@ -15,14 +15,15 @@ if(isset($_POST['submit'])){
     $new_name=$target.time()."-".rand(1000,9999)."-".$image;
     $description=$_POST['description'];
 
-    $sql="insert into products values(null,'$name','$new_name','$description',now())";
+    $sql="insert into products values(null,'$name','$new_name','$description',now(),'".$_SESSION['login']."')";
+    // var_dump($sql);
+    // exit();
     
     if(mysqli_query($conn,$sql)){
         if(move_uploaded_file($tmp_name, $new_name)){
             header('location:home.php');
         }
     }
-
 }
 mysqli_close($conn);
 ?>

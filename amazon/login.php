@@ -2,22 +2,25 @@
 <html>
 <head>
     <title>Amazone Login</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        
-    </style>
-
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Font awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .container{
+            max-width: 500px;
+        }
+    </style>
 
 </head>
 <body>
@@ -27,19 +30,30 @@
         <a href="products.php">Add new Products</a>
         <a href="home.php">Home</a>
     </div>
-    <div class="divmain">
-        <div>
-            <img src="./images/logo.png"><br>
-        </div><br>
+    <div class="container">
+        <div class=""><hr>
+            <img src="./images/logo.png" class="rounded mx-auto d-block"><hr>
+        </div>
         <div>
             <form action="login-function.php" method="POST">
-                <div>
-                    <label>E-mail :</label><input type="email" name="mail" placeholder="Enter email" class="form-control"><br><br>
-                    <label>Password :</label><input type="password" name="password" placeholder="Enter password" class="form-control"><br><br>
+                <label class="control-label">E-mail :</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input type="email" name="mail" class="form-control" placeholder="Enter email" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
+                <label class="control-label">Password :</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" name="password" class="form-control" placeholder="Enter password" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <hr>
                 <div style="text-align: center;">
-                    <input type="submit" value="Login" name="sub" class="btn btn-primary">
-                    <a href="signup_form.php" class="btn btn-secondary ml-2">Create New Account</a><br>
+                    <input type="submit" value="Login" name="sub" class="btn btn-primary mr-2">
+                    <a class="btn btn-secondary" href="signup_form.php" role="button">Create New Account</a>
                     <?php
                     if (isset($_REQUEST["err"])) {
                         $msg="*Invalid username or Password";
@@ -53,6 +67,7 @@
                     </p>
                 </div>
             </form>
+            <hr>
         </div>
     </div>
 

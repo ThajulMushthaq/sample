@@ -6,6 +6,7 @@ if(!isset($_SESSION["login"])){
 include 'db-connection.php';
 
 $result=mysqli_query($conn,"SELECT * FROM user WHERE userid='".$_SESSION['login']."'");
+$row=mysqli_fetch_array($result);
 // var_dump($result);
 // exit();
 ?>
@@ -26,8 +27,16 @@ $result=mysqli_query($conn,"SELECT * FROM user WHERE userid='".$_SESSION['login'
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Font awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <!-- Google icons    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+    </style>
+
 </head>
 <body>
     <div class="topnav">
@@ -36,30 +45,33 @@ $result=mysqli_query($conn,"SELECT * FROM user WHERE userid='".$_SESSION['login'
         <a href="products.php">Add new Products</a>
         <a href="home.php">Home</a>
     </div>
-    <div class="">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>E-mail</th>
-                <th>Address</th>
-                <th>Gender</th>
-                <th>D.O.B</th>
-            </tr>
-            <?php
-            while($row=mysqli_fetch_array($result)){
-            echo "<tr>";
-            echo "<td>".$row['fname']." ".$row['lname']."</td>";
-            echo "<td>".$row['mail']."</td>" ;
-            echo "<td>".$row['address']."</td>" ;
-            echo "<td>".$row['gender']."</td>" ;
-            echo "<td>".$row['dob']."</td>" ;
-            echo "</tr>";
-            }
-            ?>
-        </table>
-    </div>
-    <div style="margin-left: 400px;">
-        <a href="edit-profile.php" class="btn btn-primary">Edit</a>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 img-thumbnail">
+                            <img src="http://placehold.it/160x200" alt="" class="img-rounded img-responsive" />
+                        </div>
+                        <div class="col-sm-6 col-md-8">
+                            <?php echo "<h3>".$row['fname']." ".$row['lname']."</h3>";?>
+                            <?php echo '<small class="location"><cite>'.$row['address'].' '.'<i class="fas fa-map-marker"></i></cite></small>' ;?>
+                            <?php echo '<p>
+                                <i class="fas fa-envelope"></i>'.' '.$row['mail'].
+                                '<br />
+                                <i class="fas fa-user"></i>'.' '.$row['gender'].
+                                '<br />
+                                <i class="fas fa-gift"></i>'.' '.$row['dob'].
+                            '</p>' ;?>
+                            <a href="edit-profile.php" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="my-products.php" class="btn btn-danger"><i class="fas fa-shopping-bag"></i> My Products</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

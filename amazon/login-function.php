@@ -19,11 +19,8 @@ if(isset($_POST['sub'])){
             header("location: home.php");
         }
         else{
-            // header("location: login.php");
-            echo '<script>alert("Wrong user details");window.location="login.php"</script>';
-
+            echo '<script>alert("Wrong username / password! Please try again!");window.location="login.php"</script>';
         }
-    
     }
     // $row=mysqli_fetch_array($result);
     // if($row){

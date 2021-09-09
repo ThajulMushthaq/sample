@@ -1,63 +1,25 @@
 body{
     margin: 0; 
-    background: #eee;
+    background: rgb(255, 255, 255);
 }  
 .divmain{
-    border: solid rgb(201, 199, 199) 1px;  
+    border: solid rgb(221, 220, 220) 1px;  
     width:30%;  
     border-radius: 2px;  
     margin: 10px auto;  
-    background: white;  
+    background: rgb(243, 243, 243);  
     padding: 50px;
 }
-.btn {
-    border-radius: 5px;
-    color: #fff;  
-    background: #337ab7;  
-    padding: 7px;
-    cursor: pointer;
-}
+
 label {
-    font-weight:bold;
-    width:100px;
-    font: size 15px;
+    font-weight:500;
 }
 h4{
     font-weight: 900;
     color: #337ab7;
     text-align: center;
 }
-h1{
-    text-align: center;
-}
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}
-table{
-    width: 70%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    border-collapse: collapse;
-}
-td,th{
-    border:1px solid #ddd;
-    padding: 10px;
-}
-table tr:hover{
-    background: #fff;
-}
-table tr:nth-child(even){
-    background-color: #f2f2f2;
-}
-th{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: left;
-    background-color: rgb(1, 59, 78);
-    color: ivory;
-}
+
 .topnav{
     background-color: #333;
     overflow: hidden;
@@ -75,7 +37,7 @@ th{
     color: black;
 }
 .topnav a.active{
-    background-color: #04AA6D;
+    background-color: #047baa;
     color: white;
 }
 .card{
@@ -85,13 +47,13 @@ th{
     height: 300px;
     float: left;
     text-align: center;
+    margin: .5rem;
 }
 .card:hover{
     opacity: 80%;
 }
-#imagePreview{
-    /* max-width: 70px; */
-    max-height: 100px;
-    width: auto;
-    /* height: auto; */
+.location {
+    display: block;
+    line-height: 2;
+    color: #999;
 }

@@ -1,24 +1,25 @@
 <?php
-session_start ();
-if(!isset($_SESSION["login"])){
-    header("location:login.php"); 
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("location:login.php");
 }
 include 'db-connection.php';
 
-$result=mysqli_query($conn,"SELECT * FROM user WHERE userid='".$_SESSION['login']."'");
-$row=mysqli_fetch_array($result);
+$result = mysqli_query($conn, "SELECT * FROM user WHERE userid='" . $_SESSION['login'] . "'");
+$row = mysqli_fetch_array($result);
 // var_dump($result);
 // exit();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Latest compiled JavaScript -->
@@ -38,6 +39,7 @@ $row=mysqli_fetch_array($result);
     </style>
 
 </head>
+
 <body>
     <div class="topnav">
         <a href="logout.php">Logout</a>
@@ -55,15 +57,15 @@ $row=mysqli_fetch_array($result);
                             <img src="http://placehold.it/160x200" alt="" class="img-rounded img-responsive" />
                         </div>
                         <div class="col-sm-6 col-md-8">
-                            <?php echo "<h3>".$row['fname']." ".$row['lname']."</h3>";?>
-                            <?php echo '<small class="location"><cite>'.$row['address'].' '.'<i class="fas fa-map-marker"></i></cite></small>' ;?>
+                            <?php echo "<h3>" . $row['fname'] . " " . $row['lname'] . "</h3>"; ?>
+                            <?php echo '<small class="location"><cite>' . $row['address'] . ' ' . '<i class="fas fa-map-marker"></i></cite></small>'; ?>
                             <?php echo '<p>
-                                <i class="fas fa-envelope"></i>'.' '.$row['mail'].
+                                <i class="fas fa-envelope"></i>' . ' ' . $row['mail'] .
                                 '<br />
-                                <i class="fas fa-user"></i>'.' '.$row['gender'].
+                                <i class="fas fa-user"></i>' . ' ' . $row['gender'] .
                                 '<br />
-                                <i class="fas fa-gift"></i>'.' '.$row['dob'].
-                            '</p>' ;?>
+                                <i class="fas fa-gift"></i>' . ' ' . $row['dob'] .
+                                '</p>'; ?>
                             <a href="edit-profile.php" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
                             <a href="my-products.php" class="btn btn-danger"><i class="fas fa-shopping-bag"></i> My Products</a>
 
@@ -74,4 +76,5 @@ $row=mysqli_fetch_array($result);
         </div>
     </div>
 </body>
+
 </html>

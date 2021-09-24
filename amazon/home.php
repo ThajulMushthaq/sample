@@ -2,12 +2,13 @@
 include "db-connection.php";
 session_start();
 
-$sql=mysqli_query($conn,"select products.pid,products.name,products.image,products.date,user.fname,user.lname from products left join user on products.userid=user.userid");
+$sql = mysqli_query($conn, "select products.pid,products.name,products.image,products.date,user.fname,user.lname from products left join user on products.userid=user.userid");
 // $data=mysqli_fetch_array($sql);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,13 +28,14 @@ $sql=mysqli_query($conn,"select products.pid,products.name,products.image,produc
 
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
+
 <body>
     <div class="topnav">
         <?php
-        if(isset($_SESSION['login'])){            
-            echo '<a href="logout.php">Logout</a>' ;
+        if (isset($_SESSION['login'])) {
+            echo '<a href="logout.php">Logout</a>';
         } else {
-            echo '<a href="login.php">Login</a>' ;
+            echo '<a href="login.php">Login</a>';
         }
         ?>
         <a href="user-profile.php">Profile</a>
@@ -41,15 +43,16 @@ $sql=mysqli_query($conn,"select products.pid,products.name,products.image,produc
         <a class="active" href="home.php">Home</a>
     </div>
     <?php
-    while($row=mysqli_fetch_array($sql)){
-    echo '<div class="card col-md-3 ">
-            <h4>'.$row["fname"].' '.$row["lname"].'</h4>
-            <img src="'.$row["image"].'">
-            <label>'.$row["name"].'</label><br>
-            <label>'.$row["date"].'</label>
-            <a href="product-details.php?pid='.$row["pid"].'" class="stretched-link"></a>
+    while ($row = mysqli_fetch_array($sql)) {
+        echo '<div class="card col-md-3 ">
+            <h4>' . $row["fname"] . ' ' . $row["lname"] . '</h4>
+            <img src="' . $row["image"] . '">
+            <label>' . $row["name"] . '</label><br>
+            <label>' . $row["date"] . '</label>
+            <a href="product-details.php?pid=' . $row["pid"] . '" class="stretched-link"></a>
         </div>';
     }
     ?>
 </body>
+
 </html>

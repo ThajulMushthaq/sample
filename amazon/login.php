@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Amazone Login</title>
 
@@ -13,16 +14,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Font awesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    
+
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .container{
+        .container {
             max-width: 500px;
         }
     </style>
 
 </head>
+
 <body>
     <div class="topnav">
         <!-- <a href="logout.php">Logout</a> -->
@@ -31,8 +33,10 @@
         <a href="home.php">Home</a>
     </div>
     <div class="container">
-        <div class=""><hr>
-            <img src="./images/logo.png" class="rounded mx-auto d-block"><hr>
+        <div class="">
+            <hr>
+            <img src="./images/logo.png" class="rounded mx-auto d-block">
+            <hr>
         </div>
         <div>
             <form action="login-function.php" method="POST">
@@ -56,14 +60,14 @@
                     <a class="btn btn-secondary" href="signup_form.php" role="button">Create New Account</a>
                     <?php
                     if (isset($_REQUEST["err"])) {
-                        $msg="*Invalid username or Password";
-                    }
-                    ?>           
-                    <p style="color: red;">
-                    <?php if(isset($msg)){
-                        echo $msg;
+                        $msg = "*Invalid username or Password";
                     }
                     ?>
+                    <p style="color: red;">
+                        <?php if (isset($msg)) {
+                            echo $msg;
+                        }
+                        ?>
                     </p>
                 </div>
             </form>
@@ -74,4 +78,5 @@
 
 
 </body>
+
 </html>

@@ -2,7 +2,7 @@
 include "db-connection.php";
 session_start();
 
-$sql = mysqli_query($conn, "select products.pid,products.name,products.image,products.date,user.fname,user.lname from products left join user on products.userid=user.userid");
+$sql = mysqli_query($conn, "select products.pid,products.name,products.image,products.date,user.fname,user.lname from products left join user on products.userid=user.userid limit 8");
 // $data=mysqli_fetch_array($sql);
 
 ?>
@@ -44,15 +44,70 @@ $sql = mysqli_query($conn, "select products.pid,products.name,products.image,pro
     </div>
     <?php
     while ($row = mysqli_fetch_array($sql)) {
-        echo '<div class="card col-md-3 ">
-            <h4>' . $row["fname"] . ' ' . $row["lname"] . '</h4>
-            <img src="' . $row["image"] . '">
-            <label>' . $row["name"] . '</label><br>
-            <label>' . $row["date"] . '</label>
-            <a href="product-details.php?pid=' . $row["pid"] . '" class="stretched-link"></a>
-        </div>';
+        echo '
+        <div class="card col-md-3 ">
+            <div class="card-header">
+                <label class="card-title">' . $row["fname"] . ' ' . $row["lname"] . '</label>
+            </div>
+            <div class="card-body">
+                <img src="' . $row["image"] . '" class="card-img-top product-img">
+                <label>' . $row["name"] . '</label><br>
+                <label>' . $row["date"] . '</label>
+                <a href="product-details.php?pid=' . $row["pid"] . '" class="stretched-link"></a>
+            </div>
+        </div>
+        ';
     }
     ?>
+
+    <script>
+        $(window).scroll(function() {
+            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                // var lastId = $(".well:last").attr("id");
+                $.ajax({
+                    url: 'ajax.php',
+                    type: "post",
+                    beforeSend: function() {
+                        $('.ajax-loader').show();
+                    },
+                    success: function(data) {
+                        $(".card").append(data);
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- <script>
+        $(document).ready(function() {
+            $("#display").click(function() {
+                $.ajax({
+                    type: "GET",
+                    url: "ajax.php",
+                    // dataType: "json",
+                    success: function(response) {
+                        // console.log(response);
+                        var arr = JSON.parse(response);
+                        // $.each(arr, function(index, value) {
+                        //     console.log('The value at arr[' + index + '] is: ' + value);
+                        // });
+                        // $("li").each(function(index) {
+                        //     console.log(index + ": " + $(this).text());
+                        // });
+
+                        $('#pid').html(arr.pid);
+                        $('#pname').html(arr.name);
+                        $('#image').html(arr.image);
+                        $('#date').html(arr.date);
+                        $('#fname').html(arr.fname);
+                        $('#lname').html(arr.lname);
+                    }
+                });
+            });
+        });
+    </script> -->
+
+
 </body>
 
 </html>

@@ -1,9 +1,10 @@
 <?php
-session_start();
-if (!isset($_SESSION["login"]))
-    header("location:login.php");
-
 include "db-connection.php";
+session_start();
+if (!isset($_SESSION["login"])){
+    header("location:login.php");
+}
+
 
 if (isset($_POST['submit'])) {
     $image = $_FILES['image']['name'];

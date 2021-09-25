@@ -49,6 +49,9 @@ h4 {
   text-align: center;
   margin: 0.5rem;
 }
+.card-header{
+    background-color: rgba(255, 255, 255, 0.644);
+}
 .card:hover {
   opacity: 80%;
 }
@@ -56,4 +59,9 @@ h4 {
   display: block;
   line-height: 2;
   color: #999;
+}
+.product-img{
+    object-fit: contain;
+    height: 200px;
+    width: 200px;
 }

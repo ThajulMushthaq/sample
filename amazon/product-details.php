@@ -53,7 +53,7 @@ $row = mysqli_fetch_array($sql);
                 <div class="mdb-lightbox">
                     <div class="row product-gallery mx-1">
                         <div class="col-12 mb-0">
-                            <?php echo "<img src='" . $row['image'] . "'>"; ?>
+                            <?php echo "<img src='" . $row['image'] . "' class='product-img'>"; ?>
                         </div>
                     </div>
                 </div>

@@ -88,7 +88,7 @@ $result = mysqli_query($conn, "SELECT * FROM products WHERE userid='" . $_SESSIO
         while ($row = mysqli_fetch_array($result)) {
             echo '
     <div class="card border-secondary">
-        <img class="card-img-top" src="' . $row["image"] . '">
+        <img class="card-img-top product-img" src="' . $row["image"] . '">
         <div class="card-body">
             <h5 class="card-title">' . $row["name"] . '</h5>
             <p class="card-text">' . $row["description"] . '</p>

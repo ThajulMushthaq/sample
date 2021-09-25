@@ -45,8 +45,8 @@
                 <input class="form-check-input" type="radio" name="gender" value="Male"> <label>Male</label>
                 <input class="form-check-input" type="radio" name="gender" value="Female"> <label>Female</label>
                 <input class="form-check-input" type="radio" name="gender" value="Other"> <label>Other</label><br>
-                <label>E-mail: </label><input type="email" name="mail" class="form-control">
-                <label>Password: </label><input type="password" name="password" class="form-control"><br>
+                <label>E-mail: </label><input type="email" name="mail" class="form-control" required>
+                <label>Password: </label><input type="password" name="password" class="form-control" required><br>
                 <div style="text-align: center;"><input type="submit" name="submit" value="Sign In" class="btn btn-primary"></div>
             </form>
             <hr>

@@ -2,7 +2,7 @@
 include "db-connection.php";
 session_start();
 
-$sql = mysqli_query($conn, "select products.pid,products.name,products.image,products.date,user.fname,user.lname from products left join user on products.userid=user.userid limit 8");
+$sql = mysqli_query($conn, "select products.pid,products.name,products.image,products.date,user.fname,user.lname from products left join user on products.userid=user.userid order by pid desc limit 12");
 // $data=mysqli_fetch_array($sql);
 
 ?>
@@ -17,10 +17,10 @@ $sql = mysqli_query($conn, "select products.pid,products.name,products.image,pro
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Font awesome Icons -->
@@ -45,7 +45,7 @@ $sql = mysqli_query($conn, "select products.pid,products.name,products.image,pro
     <?php
     while ($row = mysqli_fetch_array($sql)) {
         echo '
-        <div class="card col-md-3 ">
+        <div class="card col-md-3" id="alldata">
             <div class="card-header">
                 <label class="card-title">' . $row["fname"] . ' ' . $row["lname"] . '</label>
             </div>
@@ -60,18 +60,35 @@ $sql = mysqli_query($conn, "select products.pid,products.name,products.image,pro
     }
     ?>
 
-    <script>
-        $(window).scroll(function() {
-            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-                // var lastId = $(".well:last").attr("id");
+    <!-- <script type="text/javascript" src="jquery.js"></script> -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(window).scroll(function() {
+
+                //check if the users are at bottom of the window
+                //scroll to returns 0
+
+                if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                    getmoredata();
+                }
+            });
+
+            function getmoredata() {
+                // var ids = $('.vikash:last').attr("id");
+
                 $.ajax({
+                    type: 'post',
+                    asynch: false,
                     url: 'ajax.php',
-                    type: "post",
-                    beforeSend: function() {
-                        $('.ajax-loader').show();
-                    },
-                    success: function(data) {
-                        $(".card").append(data);
+                    cache: false,
+                    // data: {
+                    //     getdata: ids
+                    // },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+                        console.log(data);
+                        //appending the result get_moredata page result with div id alldata
+                        $('#alldata').append('<P></p>');
                     }
                 });
             }

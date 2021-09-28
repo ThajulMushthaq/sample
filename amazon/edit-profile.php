@@ -52,7 +52,7 @@ if (isset($_POST['update'])) {
   <style>
     .container {
       max-width: 700px;
-    }
+    }    
   </style>
 
 </head>
